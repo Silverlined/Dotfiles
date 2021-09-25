@@ -1,9 +1,10 @@
+filetype on
 syntax on
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set ai
 set number
+set mouse=a
 set hlsearch
 set ruler
 set encoding=utf-8
@@ -12,6 +13,7 @@ set cmdheight=2
 set smarttab
 set smartindent
 set autoindent
+colorscheme default
 
 highlight Comment ctermfg=green
 " ####### Key Bindings #######
