@@ -13,6 +13,8 @@ set cmdheight=2
 set smarttab
 set smartindent
 set autoindent
+set clipboard=unnamedplus
+set noswapfile
 colorscheme default
 
 highlight Comment ctermfg=green
