@@ -120,7 +120,8 @@ export PYTHONPATH="/usr/local/lib/python3/dist-packages/"
 export GTK_THEME=Default
 
 # File system navigation
-source /usr/share/fzf/shell/key-bindings.bash
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
 # When selecting files with fzf, we show file content with syntax highlighting,
 # or without highlighting if it's not a source file. If the file is a directory,
 # we use tree to show the directory's contents.
@@ -137,16 +138,16 @@ alias la='ls -A'
 alias black='/bin/black'
 alias off='xset dpms force off'
 
-alias vi='nvim'
-alias vim='nvim'
-alias ci3='nvim $HOME/.config/i3/config'
-alias viplug='nvim $HOME/.config/nvim/plugins.vim'
-alias vimap='nvim $HOME/.config/nvim/mappings.vim'
-alias viset='nvim $HOME/.config/nvim/settings.vim'
-alias visnippets='nvim $HOME/.config/nvim/tex.snippets'
-alias notes='nvim $HOME/.notes.md'
-alias vibash='nvim $HOME/.bashrc'
+#alias vi='nvim'
+#alias vim='nvim'
+#alias ci3='nvim $HOME/.config/i3/config'
+#alias viplug='nvim $HOME/.config/nvim/plugins.vim'
+#alias vimap='nvim $HOME/.config/nvim/mappings.vim'
+#alias viset='nvim $HOME/.config/nvim/settings.vim'
+#alias visnippets='nvim $HOME/.config/nvim/tex.snippets'
+#alias notes='nvim $HOME/.notes.md'
+#alias vibash='nvim $HOME/.bashrc'
 alias sbash='source $HOME/.bashrc'
 alias bgkey="setxkbmap -option 'grp:ctrl_shift_toggle' -layout us,bg -variant ,phonetic"
-alias i3require="nvim $HOME/.config/i3/requirements.txt"
+#alias i3require="nvim $HOME/.config/i3/requirements.txt"
 stty werase \^H

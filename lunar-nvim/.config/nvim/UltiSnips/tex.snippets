@@ -1,7 +1,12 @@
 snippet template "Basic template" b
 \documentclass[12pt, a4paper]{article}
 
-\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{enumitem}
+%\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
 \usepackage{lmodern}
@@ -13,14 +18,22 @@ snippet template "Basic template" b
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{siunitx}
+\usepackage{endurosat}
+
 \graphicspath{{./res/}}
-\usepackage[
-backend=biber,
-natbib=true,
-style=numeric,
-sorting=none
-]{biblatex}
-\addbibresource{ref.bib}
+%\usepackage[
+%backend=biber,
+%natbib=true,
+%style=numeric,
+%sorting=none
+%]{biblatex}
+%\addbibresource{ref.bib}
+
+%Set the header of the document for fancy page style
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{\includegraphics[width=0.1\textwidth]{logo.png}}
+%\renewcommand{\headrulewidth}{0pt} %thickness of the horizontal line between header and text
 
 
 \begin{document}
@@ -38,6 +51,12 @@ sorting=none
 % \printbibliography
 \end{document}
 
+endsnippet
+
+snippet code "\begin{lstlisting}" b
+\begin{lstlisting}[language=$0, caption=$2]
+  $1
+\end{lstlisting}
 endsnippet
 
 snippet sec "section*{}" b
