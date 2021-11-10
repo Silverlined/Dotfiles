@@ -22,7 +22,7 @@ A list of all programs installed on my Fedora/Arch machine can be found in the `
 
 e.g.
 ```sh
-cp -RP ~/.texmf/folder/ /usr/share/texlive/texmf-dist/tex/
+ln -s ~/.texmf/folder/custom_sty.sty /usr/share/texlive/texmf-dist/tex/folder
 ```
 where 'folder' contains the .sty file
 
