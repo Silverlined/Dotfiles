@@ -91,6 +91,9 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias python='python3'
+alias python_="python3 -c \"import numpy as np; import code; code.interact(local=locals())\""
+alias vpn="sudo openvpn --config /etc/openvpn/client/ESVPNConfig.ovpn"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,39 +118,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
+stty werase \^H
 export PYTHONPATH="/usr/local/lib/python3/dist-packages/"
 export GTK_THEME=Default
 
-# File system navigation
-
+# FZF binding
 source /usr/share/doc/fzf/examples/key-bindings.bash
-# When selecting files with fzf, we show file content with syntax highlighting,
-# or without highlighting if it's not a source file. If the file is a directory,
-# we use tree to show the directory's contents.
-# We only load the first 200 lines of the file which enables fast previews
-# of large text files.
-# Requires highlight and tree: pacman -S highlight tree
-export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
-cat {} || tree -C {}) 2> /dev/null | head -100'"
-complete -o bashdefault -o default -F _fzf_path_completion zathura
 
-# User specific aliases and functions
-alias pip='pip3'
-alias la='ls -A'
-alias black='/bin/black'
-alias off='xset dpms force off'
-
-#alias vi='nvim'
-#alias vim='nvim'
-#alias ci3='nvim $HOME/.config/i3/config'
-#alias viplug='nvim $HOME/.config/nvim/plugins.vim'
-#alias vimap='nvim $HOME/.config/nvim/mappings.vim'
-#alias viset='nvim $HOME/.config/nvim/settings.vim'
-#alias visnippets='nvim $HOME/.config/nvim/tex.snippets'
-#alias notes='nvim $HOME/.notes.md'
-#alias vibash='nvim $HOME/.bashrc'
-alias sbash='source $HOME/.bashrc'
-alias bgkey="setxkbmap -option 'grp:ctrl_shift_toggle' -layout us,bg -variant ,phonetic"
-#alias i3require="nvim $HOME/.config/i3/requirements.txt"
-stty werase \^H
