@@ -119,9 +119,13 @@ if ! shopt -oq posix; then
   fi
 fi
 stty werase \^H
-export PYTHONPATH="/usr/local/lib/python3/dist-packages/"
+export PYTHONPATH="/usr/local/lib/python3/dist-packages/:"$PYTHONPATH
 export GTK_THEME=Default
 
-# FZF binding
+export LD_LIBRARY_PATH="/usr/local/lib/x86_64-linux-gnu/:"$LD_LIBRARY_PATH
+
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
+#if [[ $PWD == $(realpath ~) ]]; then
+#    cd ~/Desktop/
+#fi
