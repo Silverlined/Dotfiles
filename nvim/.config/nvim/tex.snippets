@@ -155,8 +155,9 @@ snippet ... "ldots" iA
 endsnippet
 
 snippet fig "Figure environment" b
-\begin{figure}[${1:htpb}]
+\begin{figure}[${1:h}]
 	\centering
+    \captionsetup{justification=centering,margin=1cm}
 	${2:\includegraphics[width=0.8\textwidth]{$3}}
 	\caption{${4:$4}}
 	\label{fig:${5:${3/\W+/-/g}}}
