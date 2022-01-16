@@ -42,6 +42,7 @@ local disabled_built_ins = {
   "logipat",
   "rrhelper",
   "spellfile_plugin",
+  "lspconfig",
   -- 'matchit', 'matchparen', 'shada_plugin',
 }
 

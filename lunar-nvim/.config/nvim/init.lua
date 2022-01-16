@@ -5,7 +5,7 @@ if not status_ok then
   print "something is wrong with your lv-config"
 end
 require "plugins"
-vim.g.colors_name = O.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
+--vim.g.colors_name = O.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
 require "settings"
 require "lv-utils"
 
