@@ -66,7 +66,9 @@ O.lang.tsserver.linter = nil
 -- }
 O.user_plugins = {
   {
-    "sirver/ultisnips"
+--    "folke/tokyonight.nvim",
+    "sirver/ultisnips",
+    "lervag/vimtex"
   }
 }
 

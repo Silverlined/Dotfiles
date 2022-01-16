@@ -28,14 +28,14 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- TODO: refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-  use { "neovim/nvim-lspconfig" }
-  use {
-    "kabouzeid/nvim-lspinstall",
-    event = "VimEnter",
-    config = function()
-      require("lspinstall").setup()
-    end,
-  }
+--  use { "neovim/nvim-lspconfig" }
+--  use {
+--    "kabouzeid/nvim-lspinstall",
+--   event = "VimEnter",
+--    config = function()
+--      require("lspinstall").setup()
+--    end,
+--  }
 
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
@@ -213,10 +213,10 @@ return require("packer").startup(function(use)
   ---------------------------------------------------------------------------------
 
   -- LANGUAGE SPECIFIC GOES HERE
-  use {
-    "lervag/vimtex",
-    ft = "tex",
-  }
+ -- use {
+ --   "lervag/vimtex",
+ --   ft = "tex",
+ -- }
 
   -- Rust tools
   -- TODO: use lazy loading maybe?
