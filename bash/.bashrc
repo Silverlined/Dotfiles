@@ -129,3 +129,6 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 #if [[ $PWD == $(realpath ~) ]]; then
 #    cd ~/Desktop/
 #fi
+
+ulimit -c unlimited
+echo 'core' | sudo tee /proc/sys/kernel/core_pattern
