@@ -94,6 +94,7 @@ alias l='ls -CF'
 alias python='python3'
 alias python_="python3 -c \"import numpy as np; import code; code.interact(local=locals())\""
 alias vpn="sudo openvpn --config /etc/openvpn/client/ESVPNConfig.ovpn"
+alias wifi="nmcli device wifi show"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
