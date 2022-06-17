@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=2000
+HISTFILESIZE=4000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -93,7 +93,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias python='python3'
 alias python_="python3 -c \"import numpy as np; import code; code.interact(local=locals())\""
-alias vpn="sudo openvpn --config /etc/openvpn/client/ESVPNConfig.ovpn"
+alias vpn="sudo openvpn --config /etc/openvpn/client/new-vpn.ovpn"
 alias wifi="nmcli device wifi show"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -120,16 +120,44 @@ if ! shopt -oq posix; then
   fi
 fi
 stty werase \^H
-export PYTHONPATH="/usr/local/lib/python3/dist-packages/:"$PYTHONPATH
+export PYTHONPATH="/usr/local/lib/python3/dist-packages/"
 export GTK_THEME=Default
 
-export LD_LIBRARY_PATH="/usr/local/lib/x86_64-linux-gnu/:"$LD_LIBRARY_PATH
-
+# FZF binding
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
-#if [[ $PWD == $(realpath ~) ]]; then
-#    cd ~/Desktop/
-#fi
 
-ulimit -c unlimited
-echo 'core' | sudo tee /proc/sys/kernel/core_pattern
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+#ulimit -c unlimited
+#echo 'core' | sudo tee /proc/sys/kernel/core_pattern
+
+
+## Search in files:
+wfind() {
+    grep -rnw './' -e "$1"
+}
+
+### STRF
+export ST_DATADIR=$HOME/git/strf/
+export ST_COSPAR=$ST_DATADIR/data/sites.txt
+export ST_TLEDIR=$ST_DATADIR/data/tle
+
+# Filename convention: {TLE_DIR}/{observation_id}.txt
+export SATNOGS_TLE_DIR=$ST_DATADIR/data/tles
+
+# absulute frequency measurement storage
+# Filename convention: {OBS_DIR}/{observation_id}.txt
+export SATNOGS_OBS_DIR=$ST_DATADIR/data/obs
+
+# SATTOOLS/STRF/STVID sites.txt file
+export SATNOGS_SITES_TXT=$ST_DATADIR/data/sites/sites.txt
+
+export SATNOGS_NETWORK_API_URL="https://network.satnogs.org/api/"
+export SATNOGS_DB_API_URL="https://db.satnogs.org/api/"
+export SATNOGS_DB_API_TOKEN="6c37e1791726d6398025bcccdb5eb85a9d41570c"
+
+source ~/.git-prompt.sh
