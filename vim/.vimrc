@@ -29,7 +29,6 @@ inoremap <C-z> <C-o>u
 vnoremap <C-z> <Esc>u
 
 " Paste with v intead of p
-noremap v p
 noremap <C-v> p
 inoremap <C-v> <Esc>p
 vnoremap <C-c> y
