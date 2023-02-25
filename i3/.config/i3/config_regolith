@@ -41,6 +41,7 @@ bindsym $mod+F12 exec pactl set-sink-port 0 analog-output-lineout
 
 # Add Calendar applet:
 bindsym $mod+p exec zenity --calendar
+bindsym $mod+shift+space exec gvim /home/silverlined/note
 
 ###############################################################################
 # Key Mappings
@@ -115,7 +116,7 @@ bindsym $mod+$i3-wm.binding.launcher.app exec $i3-wm.program.launcher.app
 ## Launch // Command // <><Shift> Space ##
 set_from_resource $i3-wm.binding.launcher.cmd i3-wm.binding.launcher.cmd Shift+space
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
-bindsym $mod+$i3-wm.binding.launcher.cmd exec $i3-wm.program.launcher.cmd
+#bindsym $mod+$i3-wm.binding.launcher.cmd exec $i3-wm.program.launcher.cmd
 
 ## Navigate // Window by Name // <><Ctrl> Space ##
 set_from_resource $i3-wm.binding.launcher.window i3-wm.binding.launcher.window Ctrl+space
