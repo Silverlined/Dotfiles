@@ -15,7 +15,12 @@ set smartindent
 set autoindent
 set clipboard=unnamedplus
 set noswapfile
-colorscheme default
+colorscheme pablo
+if has("gui_running")
+  if has("gui_gtk3")
+    set guifont=Inconsolata\ 12
+  endif
+endif
 
 highlight Comment ctermfg=green
 " ####### Key Bindings #######
