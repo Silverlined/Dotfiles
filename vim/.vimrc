@@ -111,3 +111,46 @@ imap ^[OB <ESC>ji
 imap ^[OC <ESC>li
 imap ^[OD <ESC>hi
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+" Make sure you use single quotes
+call plug#begin()
+
+Plug 'lervag/vimtex', {'for': 'tex'}
+autocmd! User vimtex echom 'VimTex is now loaded!'
+
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+
+" VimTex
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+let maplocalleader = "\<Space>" 
+let g:vimtex_compiler_latexmk = {
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
