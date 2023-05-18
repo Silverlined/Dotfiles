@@ -160,4 +160,4 @@ export SATNOGS_NETWORK_API_URL="https://network.satnogs.org/api/"
 export SATNOGS_DB_API_URL="https://db.satnogs.org/api/"
 export SATNOGS_DB_API_TOKEN="6c37e1791726d6398025bcccdb5eb85a9d41570c"
 
-source ~/.git-prompt.sh
+# source ~/.git-prompt.sh
