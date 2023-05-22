@@ -56,6 +56,17 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 else
@@ -95,6 +106,8 @@ alias python='python3'
 alias python_="python3 -c \"import numpy as np; import code; code.interact(local=locals())\""
 alias vpn="sudo openvpn --config /etc/openvpn/client/new-vpn.ovpn"
 alias wifi="nmcli device wifi show"
+alias lv="lvim"
+#alias lsusb='ls -c /dev/bus/usb/004/0*'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -109,27 +122,18 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
 stty werase \^H
 export PYTHONPATH="/usr/local/lib/python3/dist-packages/"
 export GTK_THEME=Default
+export PATH="$PATH:/usr/local/go/bin"
 
 # FZF binding
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 #ulimit -c unlimited
@@ -142,7 +146,7 @@ wfind() {
 }
 
 ### STRF
-export ST_DATADIR=$HOME/git/strf/
+export ST_DATADIR=$HOME/git/strf
 export ST_COSPAR=$ST_DATADIR/data/sites.txt
 export ST_TLEDIR=$ST_DATADIR/data/tle
 
@@ -160,4 +164,13 @@ export SATNOGS_NETWORK_API_URL="https://network.satnogs.org/api/"
 export SATNOGS_DB_API_URL="https://db.satnogs.org/api/"
 export SATNOGS_DB_API_TOKEN="6c37e1791726d6398025bcccdb5eb85a9d41570c"
 
-source ~/.git-prompt.sh
+export GS_ID="platform-flatsat"
+export GNUR_ENABLE="true"
+export GS_NETWORK_TYPE="GNURADIO"
+export GNUR_SCRIPT="BLADERF_RX_TX.py"
+#source ~/.git-prompt.sh
+#ulimit -c unlimited
+sudo sysctl -w net.core.wmem_max=2500000 > /dev/null 2>&1
+
+# NPM
+#export PATH="$PATH:$(npm config get prefix)/bin"
